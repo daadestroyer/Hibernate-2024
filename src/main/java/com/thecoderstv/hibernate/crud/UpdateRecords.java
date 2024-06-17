@@ -1,11 +1,11 @@
-package com.thecoderstv.hibernate;
+package com.thecoderstv.hibernate.crud;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class SaveRecords {
+public class UpdateRecords {
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
@@ -23,14 +23,19 @@ public class SaveRecords {
 		student2.setCity("Delhi");
 		student2.setSalary(21000);
 		student2.setHobby("ps2");
+		
+		// update
+		Student loadedStudent = ssn.get(Student.class, 302);
+		if (loadedStudent != null) {
+			loadedStudent.setName("Ram");
+			loadedStudent.setCity("Kapnur");
+			loadedStudent.setSalary(8000);
+			ssn.save(loadedStudent);
+			System.out.println(" * * * Record Updated * * * ");
+			ssn.getTransaction().commit();
 
-		ssn.save(student);
-        ssn.save(student2);
-        txn.commit();
-
-		
-		
-		
-		
-	}	
+		} else {
+			System.out.println(" * * * No record found * * * ");
+		}
+	}
 }

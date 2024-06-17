@@ -1,4 +1,4 @@
-package com.thecoderstv.hibernate;
+package com.thecoderstv.hibernate.crud;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -1,4 +1,4 @@
-package com.thecoderstv.hibernate;
+package com.thecoderstv.hibernate.crud;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
