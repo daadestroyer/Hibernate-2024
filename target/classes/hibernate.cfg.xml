@@ -18,5 +18,6 @@
 		<mapping class="com.thecoderstv.hibernate.dependentclass.Address" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.dependentclass.Employee" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.dependentclass.Department" /> <!-- hibernate understand to make this table into DB -->
+		<mapping class="com.thecoderstv.hibernate.storeimage.Product" /> <!-- hibernate understand to make this table into DB -->
 	</session-factory>
 </hibernate-configuration>
