@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class App {
+public class DeleteRecords {
 	public static void main(String[] args) {
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
 
@@ -24,11 +24,8 @@ public class App {
 		student2.setSalary(21000);
 		student2.setHobby("ps2");
 
-//		ssn.save(student);
-//        ssn.save(student2);
-//        txn.commit();
-
 		// delete
+
 		Student loadedStudent = ssn.get(Student.class, 2);
 		if (loadedStudent != null) {
 			// ssn.delete(loadedStudent);
