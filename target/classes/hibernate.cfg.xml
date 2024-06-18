@@ -21,5 +21,9 @@
 		<mapping class="com.thecoderstv.hibernate.storeimage.Product" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.onetoonemapping.User" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.onetoonemapping.Address" /> <!-- hibernate understand to make this table into DB -->
+		<mapping class="com.thecoderstv.hibernate.onetomany_manytoone.Cart" /> <!-- hibernate understand to make this table into DB -->
+		<mapping class="com.thecoderstv.hibernate.onetomany_manytoone.Item" /> <!-- hibernate understand to make this table into DB -->
+		
+		
 	</session-factory>
 </hibernate-configuration>
