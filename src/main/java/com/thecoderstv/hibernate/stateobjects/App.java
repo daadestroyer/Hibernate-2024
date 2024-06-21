@@ -25,24 +25,26 @@ public class App {
 			
 			
 			// as of now this state is persistent stage here object is saved and associated with DB
-			ssn.save(studentTB);
+			//ssn.save(studentTB);
 			
 			
-//			studentTB.setName("Peter"); here if before commiting if you change the name then this name will save in DB
+			studentTB.setName("Peter"); // here if before commiting if you change the name then this name will save in DB
 // 			because as of now Shubham name is not associated with DB
+			//txn.commit();
 			
-			txn.commit();
 			
 			// as of now this is Detached State after this if you made any change it will not happen
 			ssn.close();
 			
-			studentTB.setName("John");
+			//studentTB.setName("John");
 			
 			
 			// as of now , this studentTB entity is no longer associated with DB is called as removed state
-			txn = ssn.beginTransaction();
+			
 			ssn.delete(studentTB);
 			txn.commit();
+			
+			ssn.close();
 			
 	}
 }

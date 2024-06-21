@@ -1,5 +1,6 @@
 package com.thecoderstv.hibernate.stateobjects;
 
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
@@ -7,8 +8,10 @@ import jakarta.persistence.Id;
 public class StudentTB {
 	@Id
 	private int id;
-	private String name;
+	private String stname;
 	private String city;
+	
+	@Embedded
 	private Certificate cert;
 
 	public StudentTB() {
@@ -19,7 +22,7 @@ public class StudentTB {
 	public StudentTB(int id, String name, String city, Certificate cert) {
 		super();
 		this.id = id;
-		this.name = name;
+		this.stname = name;
 		this.city = city;
 		this.cert = cert;
 	}
@@ -33,11 +36,11 @@ public class StudentTB {
 	}
 
 	public String getName() {
-		return name;
+		return stname;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.stname = name;
 	}
 
 	public String getCity() {
@@ -58,7 +61,7 @@ public class StudentTB {
 
 	@Override
 	public String toString() {
-		return "StudentTB [id=" + id + ", name=" + name + ", city=" + city + ", cert=" + cert + "]";
+		return "StudentTB [id=" + id + ", name=" + stname + ", city=" + city + ", cert=" + cert + "]";
 	}
 
 }

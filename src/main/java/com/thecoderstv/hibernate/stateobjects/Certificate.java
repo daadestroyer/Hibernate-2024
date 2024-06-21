@@ -1,10 +1,19 @@
 package com.thecoderstv.hibernate.stateobjects;
 
+import jakarta.persistence.Embeddable;
 
+@Embeddable
 public class Certificate {
 	private String name;
 
 	
+	
+	public Certificate() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	public Certificate(String name) {
 		super();
 		this.name = name;
