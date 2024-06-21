@@ -29,5 +29,6 @@
 		<mapping class="com.thecoderstv.hibernate.lazyloading_eagerloading.Items" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.stateobjects.StudentTB" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.stateobjects.Certificate" /> <!-- hibernate understand to make this table into DB -->
+		<mapping class="com.thecoderstv.hibernate.hql.Teacher" /> <!-- hibernate understand to make this table into DB -->
 	</session-factory>
 </hibernate-configuration>
