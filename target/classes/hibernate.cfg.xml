@@ -42,7 +42,7 @@
 		<mapping class="com.thecoderstv.hibernate.hql.Teacher" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.cascading.Answer" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.cascading.Question" /> <!-- hibernate understand to make this table into DB -->
-		<!-- <mapping class="com.thecoderstv.hibernate.caching.firstlevelcache.Worker" /> hibernate understand to make this table into DB
+		<mapping class="com.thecoderstv.hibernate.caching.firstlevelcache.Worker" /> <!-- hibernate understand to make this table into DB -->
 		<mapping class="com.thecoderstv.hibernate.caching.secondlevelcache.Worker" /> hibernate understand to make this table into DB -->
 	</session-factory>
 </hibernate-configuration>
