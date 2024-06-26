@@ -1,48 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	<!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 
 <hibernate-configuration>
-	<session-factory>
-		<property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/hibernate2024</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">root1998</property>
-		<property name="hbm2ddl.auto">update</property> <!-- to create table automatically -->
-		<property name="show_sql">true</property> <!-- to show the query fired by hibernate -->
-		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.use_sql_comments">true</property>
-		
-		<!-- Second Level Cache Details
+    <session-factory>
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hibernate2024</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root1998</property>
+        <property name="hbm2ddl.auto">update</property>
+        <property name="show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.use_sql_comments">true</property>
+
+ <!-- JDBC connection pool settings -->
+        <property name="hibernate.c3p0.min_size">5</property>
+        <property name="hibernate.c3p0.max_size">20</property>
+        <property name="hibernate.c3p0.timeout">300</property>
+        <property name="hibernate.c3p0.max_statements">50</property>
+        <property name="hibernate.c3p0.idle_test_period">3000</property>
+        
+        <!-- Enable second level cache -->
         <property name="hibernate.cache.use_second_level_cache">true</property>
-        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.ehcache.EhCacheRegionFactory</property>
-		 -->
-		 
-		 <!-- Specify cache provider -->
-        <!-- <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
         <property name="hibernate.cache.use_query_cache">true</property>
-		 -->
-		
-		<mapping class="com.thecoderstv.hibernate.crud.Student" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.dependentclass.Address" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.dependentclass.Employee" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.dependentclass.Department" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.storeimage.Product" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.onetoonemapping.User" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.onetoonemapping.Address" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.onetomany_manytoone.Cart" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.onetomany_manytoone.Item" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.manytomany.Employe" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.manytomany.Project" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.lazyloading_eagerloading.Carts" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.lazyloading_eagerloading.Items" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.stateobjects.StudentTB" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.stateobjects.Certificate" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.hql.Teacher" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.cascading.Answer" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.cascading.Question" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.caching.firstlevelcache.Worker" /> <!-- hibernate understand to make this table into DB -->
-		<mapping class="com.thecoderstv.hibernate.caching.secondlevelcache.Worker" /> hibernate understand to make this table into DB -->
-	</session-factory>
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property>
+ 
+ <!-- JCache configuration -->
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
+        <property name="hibernate.javax.cache.uri">/ehcache.xml</property>
+        
+        <mapping class="com.thecoderstv.hibernate.crud.Student" />
+        <mapping class="com.thecoderstv.hibernate.dependentclass.Address" />
+        <mapping class="com.thecoderstv.hibernate.dependentclass.Employee" />
+        <mapping class="com.thecoderstv.hibernate.dependentclass.Department" />
+        <mapping class="com.thecoderstv.hibernate.storeimage.Product" />
+        <mapping class="com.thecoderstv.hibernate.onetoonemapping.User" />
+        <mapping class="com.thecoderstv.hibernate.onetoonemapping.Address" />
+        <mapping class="com.thecoderstv.hibernate.onetomany_manytoone.Cart" />
+        <mapping class="com.thecoderstv.hibernate.onetomany_manytoone.Item" />
+        <mapping class="com.thecoderstv.hibernate.manytomany.Employe" />
+        <mapping class="com.thecoderstv.hibernate.manytomany.Project" />
+        <mapping class="com.thecoderstv.hibernate.lazyloading_eagerloading.Carts" />
+        <mapping class="com.thecoderstv.hibernate.lazyloading_eagerloading.Items" />
+        <mapping class="com.thecoderstv.hibernate.stateobjects.StudentTB" />
+        <mapping class="com.thecoderstv.hibernate.stateobjects.Certificate" />
+        <mapping class="com.thecoderstv.hibernate.hql.Teacher" />
+        <mapping class="com.thecoderstv.hibernate.cascading.Answer" />
+        <mapping class="com.thecoderstv.hibernate.cascading.Question" />
+        <!--<mapping class="com.thecoderstv.hibernate.caching.firstlevelcache.Worker" />  -->
+        <mapping class="com.thecoderstv.hibernate.caching.secondlevelcache.Worker" />
+    </session-factory>
 </hibernate-configuration>
